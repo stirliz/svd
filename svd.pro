@@ -14,12 +14,16 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    downloader.cpp
+    downloader.cpp \
+    algo.cpp
 
 INCLUDEPATH += include
 LIBS += -Llib -lcurl -lgumbo
 
 HEADERS  += mainwindow.h \
-    downloader.h
+    downloader.h \
+    algo.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    algo.ui \
+    paramentry.ui

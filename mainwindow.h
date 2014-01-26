@@ -6,6 +6,8 @@
 #include <QString>
 #include <QList>
 
+#include "algo.h"
+
 class Downloader;
 
 namespace Ui {
@@ -31,10 +33,13 @@ class MainWindow : public QMainWindow
 
         void on_urlEdit_returnPressed();
 
+        void on_actionModAlg_triggered();
+
     private:
         Ui::MainWindow *ui;
 
         QList<Downloader*> downloads;
+        Algo *algo;
 };
 
 #endif // MAINWINDOW_H

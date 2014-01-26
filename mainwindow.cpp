@@ -40,6 +40,11 @@ void MainWindow::on_goButton_clicked()
     ui->urlEdit->setText( url );
 }
 
+void MainWindow::on_urlEdit_returnPressed()
+{
+    on_goButton_clicked();
+}
+
 void MainWindow::on_webView_urlChanged(const QUrl &arg1)
 {
     ui->urlEdit->setText( arg1.toString() );
@@ -69,7 +74,8 @@ void MainWindow::on_actionOpenSrc_triggered()
     p->start( QString("kwrite"), QStringList(QString(d->fileName())) );
 }
 
-void MainWindow::on_urlEdit_returnPressed()
+void MainWindow::on_actionModAlg_triggered()
 {
-    on_goButton_clicked();
+    algo = new Algo( ui->urlEdit->text() );
+    algo->show();
 }
