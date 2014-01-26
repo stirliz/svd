@@ -13,11 +13,13 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    downloader.cpp
 
 INCLUDEPATH += include
 LIBS += -Llib -lcurl -lgumbo
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    downloader.h
 
 FORMS    += mainwindow.ui

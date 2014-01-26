@@ -2,6 +2,9 @@
 #include "ui_mainwindow.h"
 
 #include <QDebug>
+#include <QProcess>
+
+#include "downloader.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -17,6 +20,10 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+    Downloader *d;
+    foreach ( d, downloads )
+        delete d;
+
 }
 
 void MainWindow::on_webView_linkClicked(const QUrl &arg1)
@@ -55,6 +62,11 @@ void MainWindow::on_actionRefresh_triggered()
 
 void MainWindow::on_actionOpenSrc_triggered()
 {
+    Downloader *d = new Downloader( ui->webView->url().toString().toLocal8Bit().data() );
+    downloads << d;
+    d->download();
+    QProcess *p = new QProcess( this );
+    p->start( QString("kwrite"), QStringList(QString(d->fileName())) );
 }
 
 void MainWindow::on_urlEdit_returnPressed()

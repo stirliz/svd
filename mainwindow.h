@@ -4,6 +4,9 @@
 #include <QMainWindow>
 #include <QUrl>
 #include <QString>
+#include <QList>
+
+class Downloader;
 
 namespace Ui {
 class MainWindow;
@@ -30,6 +33,8 @@ class MainWindow : public QMainWindow
 
     private:
         Ui::MainWindow *ui;
+
+        QList<Downloader*> downloads;
 };
 
 #endif // MAINWINDOW_H
